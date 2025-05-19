@@ -19,7 +19,7 @@ func NewSort[K comparable, V comparable](less func(i, j V) bool) *Sort[K, V] {
 	}
 }
 
-func (sort Sort[K, V])BubbleSort(arr []map[K]V, key K, less func(a, b V) bool) []map[K]V {
+func (sort Sort[K, V]) BubbleSort(arr []map[K]V, key K) []map[K]V {
 	n := len(arr)
 	sorted := make([]map[K]V, n)
 	copy(sorted, arr)
@@ -33,7 +33,7 @@ func (sort Sort[K, V])BubbleSort(arr []map[K]V, key K, less func(a, b V) bool) [
 				continue
 			}
 
-			if less(v2, v1) {
+			if sort.Less(v2, v1) {
 				sorted[j], sorted[j+1] = sorted[j+1], sorted[j]
 			}
 		}
